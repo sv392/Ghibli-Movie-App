@@ -52,3 +52,20 @@ const displayMovie = (event) => {
     })
 }
 
+function darkMode() {
+    const css = document.getElementById('cssfile')
+    const dmb = document.getElementById('dmButton')
+
+    if (dmb.innerHTML == 'Toggle Darkmode') {
+        css.setAttribute('href', 'darkmode.css')
+        dmb.innerHTML = 'Toggle Lightmode'
+    } else {
+        css.setAttribute('href', 'index.css')
+        dmb.innerHTML = 'Toggle Darkmode'
+    }
+}
+
+document.getElementById('dmButton').addEventListener('mouseover', darkMode)
+
+
+

@@ -1,4 +1,4 @@
-  /* ---Reset Styles ---*/
+/* ---Reset Styles ---*/
     * {
         list-style: none;
         margin: 10px;
@@ -6,10 +6,9 @@
     }
 
     body {
-        background-color: lightblue;
-        color: #333;
-        font-family: sans-serif;
-        line-height: 18px;
+        background-color: #222;
+        color: #FFC
+        
     }
     
     h1 {
@@ -18,7 +17,7 @@
     }
 
     h2 {
-        border-bottom: 2px solid #333;
+        border-bottom: 2px solid rgb(197, 197, 197);
         font-size: 24px;
         line-height: 36px;
         margin-bottom: 16px;
@@ -42,7 +41,7 @@
     }
 
     footer.branding {
-        border-top: 2px solid #333;
+        border-top: 2px solid rgb(192, 192, 192);
         margin-top: 20px;
         padding-top: 20px;
     }
