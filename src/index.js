@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 function getMovies() {
     const ul = document.getElementById("movie-list")
-    fetch(BASE_URL + '/movies')
+    fetch(BASE_URL + `/movies`)
     .then(res => res.json())
     .then(data => {
         const movieList = data.map((movie) => ul.innerHTML += 
@@ -14,9 +14,10 @@ function getMovies() {
         <li><a href="#" data-id="${movie.id}">${movie.title}</a></li>
         `
         );
-        return movieList
+        attachClicksToLinks()
+        return movieList  
     })
-    attachClicksToLinks()
+    
 }
 
 const attachClicksToLinks =  () => {
@@ -27,13 +28,25 @@ const attachClicksToLinks =  () => {
 }
 
 const displayMovie = (event) => {
-    console.log(event.target.dataset.id)
     const info = document.getElementById('info')
-    const ul = document.getElementById("movie-list")
+    const ul = document.getElementById('movie-list')
     ul.innerHTML = ''
-    fetch(BASE_URL + `/shows/${event.target.dataset.id}`)
+    fetch(BASE_URL + `/movies/${event.target.dataset.id}`)
     .then(res => res.json())
     .then(data => {
         console.log(data)
+        info.innerHTML = `
+        <h1>${data.title}</h1><br/>
+        <h3>Release Year:</h3>
+        <p>${data.year}</p>
+        <h3>Premise:</h3>
+        <p>${data.premise}</p>
+        <h3>Genres</h3>
+        <p>${data.genres.join(", ")}</p>
+        <h3>Director:</h3>
+        <p>${data.director}</p>
+        `
     })
 }
+
+
