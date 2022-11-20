@@ -1,9 +1,13 @@
 const BASE_URL = 'http://localhost:3000'
 
+
 window.addEventListener('DOMContentLoaded', () => {
     getMovies()
-    document.getElementById("movies").addEventListener('click', getMovies)
 })
+
+
+
+document.getElementById("movies").addEventListener('mouseleave', getMovies)
 
 function getMovies() {
     const ul = document.getElementById("movie-list")
@@ -44,7 +48,7 @@ const displayMovie = (event) => {
         <p>${data.year}</p>
         <h3>Premise:</h3>
         <p>${data.premise}</p>
-        <h3>Genres</h3>
+        <h3>Genres:</h3>
         <p>${data.genres.join(", ")}</p>
         <h3>Director:</h3>
         <p>${data.director}</p>
@@ -56,16 +60,13 @@ function darkMode() {
     const css = document.getElementById('cssfile')
     const dmb = document.getElementById('dmButton')
 
-    if (dmb.innerHTML == 'Toggle Darkmode') {
+    if (dmb.innerHTML == 'Mouseover to Toggle Darkmode') {
         css.setAttribute('href', 'darkmode.css')
-        dmb.innerHTML = 'Toggle Lightmode'
+        dmb.innerHTML = 'Mouseover to Toggle Lightmode'
     } else {
         css.setAttribute('href', 'index.css')
-        dmb.innerHTML = 'Toggle Darkmode'
+        dmb.innerHTML = 'Mouseover to Toggle Darkmode'
     }
 }
 
 document.getElementById('dmButton').addEventListener('mouseover', darkMode)
-
-
-
