@@ -2,10 +2,14 @@ const BASE_URL = 'http://localhost:3000'
 
 window.addEventListener('DOMContentLoaded', () => {
     getMovies()
+    document.getElementById("movies").addEventListener('click', getMovies)
 })
 
 function getMovies() {
     const ul = document.getElementById("movie-list")
+    const info = document.getElementById('info')
+    info.innerHTML = ""
+    ul.innerHTML = ""
     fetch(BASE_URL + `/movies`)
     .then(res => res.json())
     .then(data => {
@@ -34,7 +38,6 @@ const displayMovie = (event) => {
     fetch(BASE_URL + `/movies/${event.target.dataset.id}`)
     .then(res => res.json())
     .then(data => {
-        console.log(data)
         info.innerHTML = `
         <h1>${data.title}</h1><br/>
         <h3>Release Year:</h3>
@@ -48,5 +51,4 @@ const displayMovie = (event) => {
         `
     })
 }
-
 
